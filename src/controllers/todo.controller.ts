@@ -61,8 +61,9 @@ export const deleteTodoItem = async (
   try {
     await TodoService.deleteOne(req.params.todoId);
 
-    console.log('here');
-    res.status(200).json();
+    res.status(200).json({
+      statusCode: 200,
+    });
   } catch (error) {
     return next(new ErrorException(ErrorCode.UnknownError, error));
   }
